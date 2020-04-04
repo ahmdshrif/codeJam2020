@@ -2,12 +2,39 @@
 ##Read Input 
 num_of_cases = int(input()) 
 
+# def get_colom (Matix , i ):
+
+row [] = [0 for i in range(num_of_cases)]
+colom [] = [0 for i in range(num_of_cases)]
+Sum[] = [0 for i in range(num_of_cases)]
+
 for case in range(num_of_cases) :
     size_the_matrix = int(input())
     Matix = [ None for i in range(size_the_matrix)]
     for i in range(size_the_matrix):
         Matix[i] = list(map(int, input().strip().split()))
+
+    #num of reapetd row : 
+    for i in range(size_the_matrix):
+        if len(set(Matix[i])) < len(Matix[i]):
+            row[case] += 1
+    # print(row)
+
+    #sum of diagonas 
+    for i in range(size_the_matrix):
+        Sum[case] += Matix[i][i]
+    # print(Matix)
+
+    Matix = list(zip(*Matix))
     
+    #num of reapetd colom : 
+    for i in range(size_the_matrix):
+        if len(set(Matix[i])) < len(Matix[i]):
+            colom[case] += 1
+    # print(clom)
+for case in range(num_of_cases):
+    print("Case #{}: {} {} {}".format(case+1, Sum[case] , row[case] , colom[case] ), flush = True)
+
     
 
 # test 
